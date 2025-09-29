@@ -1,30 +1,23 @@
-export default function Footer() {
-  const footerStyle = { backgroundColor: "#2563EB", color: "#fff", padding: "3rem 1.5rem" };
-  const containerStyle = {
-    maxWidth: "1200px",
-    margin: "0 auto",
-    display: "flex",
-    justifyContent: "space-between",
-    flexWrap: "wrap",
-    gap: "2rem",
-  };
+import React from "react";
+import "./Footer.css";
 
+export default function Footer() {
   return (
-    <footer style={footerStyle}>
-      <div style={containerStyle}>
+    <footer className="footer">
+      <div className="footer-container">
         <div>
-          <h3 style={{ fontSize: "1.5rem", fontWeight: "bold" }}>IELTS Pro</h3>
-          <p style={{ marginTop: "0.5rem", color: "#E5E7EB" }}>
+          <h3 className="footer-title">IELTS Pro</h3>
+          <p className="footer-text">
             Helping students achieve their dream scores since 2024.
           </p>
         </div>
         <div>
-          <h4 style={{ fontWeight: "600" }}>Contact Us</h4>
+          <h4 className="footer-heading">Contact Us</h4>
           <p>Email: info@ieltspro.com</p>
           <p>Phone: +91 98765 43210</p>
         </div>
       </div>
-      <div style={{ textAlign: "center", marginTop: "2rem", color: "#D1D5DB" }}>
+      <div className="footer-bottom">
         © 2025 IELTS Pro. All rights reserved.
       </div>
     </footer>

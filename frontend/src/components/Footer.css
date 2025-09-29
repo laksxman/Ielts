@@ -1,0 +1,43 @@
+.footer {
+  background-color: #2563eb;
+  color: #fff;
+  padding: 3rem 1.5rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footer-text {
+  margin-top: 0.5rem;
+  color: #e5e7eb;
+}
+
+.footer-heading {
+  font-weight: 600;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  color: #d1d5db;
+}
+
+/* ✅ Mobile view (≤720px) -> sab center ho jaye */
+@media (max-width: 720px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
