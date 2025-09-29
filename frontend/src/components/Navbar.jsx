@@ -1,30 +1,14 @@
 import { useState } from "react";
+import './Navbar.css';
 
-export default function Navbar({ activeSection, onLogoClick, onFeaturesClick, onTestimonialsClick, onContactClick }) {
-  const navStyle = {
-    backgroundColor: "#fff",
-    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-    position: "fixed",
-    width: "100%",
-    top: 0,
-    zIndex: 50,
-  };
-
-  const containerStyle = {
-    maxWidth: "1200px",
-    margin: "0 auto",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "1rem",
-  };
-
-  const menuStyle = {
-    listStyle: "none",
-    display: "flex",
-    gap: "2rem",
-    color: "#4B5563",
-  };
+export default function Navbar({
+  activeSection,
+  onLogoClick,
+  onFeaturesClick,
+  onTestimonialsClick,
+  onContactClick,
+}) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const menuItems = [
     { label: "Features", onClick: onFeaturesClick, id: "features" },
@@ -33,21 +17,23 @@ export default function Navbar({ activeSection, onLogoClick, onFeaturesClick, on
   ];
 
   return (
-    <nav style={navStyle}>
-      <div style={containerStyle}>
-        <div
-          onClick={onLogoClick}
-          style={{
-            fontSize: "1.5rem",
-            fontWeight: "bold",
-            color: "#2563EB",
-            cursor: "pointer",
-          }}
-        >
+    <nav className="navbar">
+      <div className="navbar-container">
+        <div onClick={onLogoClick} className="logo">
           IELTS Pro
         </div>
 
-        <ul style={menuStyle}>
+        {/* Hamburger button for mobile */}
+        <div
+          className="hamburger"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+        </div>
+
+        <ul className={`menu ${isMobileMenuOpen ? "open" : ""}`}>
           {menuItems.map((item, index) => (
             <NavItem
               key={index}
