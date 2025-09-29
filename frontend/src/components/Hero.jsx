@@ -1,71 +1,49 @@
-
+import { useState, useEffect } from "react";
+import "./Hero.css";
 
 export default function Hero({ onGetStartedClick }) {
-  const sectionStyle = {
-    paddingTop: "8rem",
-    paddingBottom: "4rem",
-    backgroundColor: "#F9FAFB",
-  };
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const containerStyle = {
-    maxWidth: "1200px",
-    margin: "0 auto",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: "0 1.5rem",
-  };
+  const images = [
+    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1200&q=80", 
+    "https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=1200&q=80", 
+    "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1200&q=80", 
+    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80", 
+  ];
 
-  const headlineStyle = {
-    fontSize: "2.5rem",
-    fontWeight: "bold",
-    color: "#111827",
-    marginBottom: "1rem",
-  };
-
-  const subtextStyle = {
-    fontSize: "1.125rem",
-    color: "#6B7280",
-    marginBottom: "1.5rem",
-  };
-
-  const buttonStyle = {
-    backgroundColor: "#2563EB",
-    color: "#fff",
-    padding: "0.75rem 1.5rem",
-    borderRadius: "0.5rem",
-    cursor: "pointer",
-    border: "none",
-    fontWeight: "bold",
-  };
-
-  const imgStyle = {
-    marginTop: "2rem",
-    borderRadius: "1rem",
-    maxWidth: "100%",
-    height: "300px",
-    width: "600px",
-    boxShadow: "0 10px 15px rgba(0,0,0,0.1)",
-    
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   return (
-    <section style={sectionStyle}>
-      <div style={containerStyle}>
-        <div style={{ textAlign: "center" }}>
-          <h1 style={headlineStyle}>Achieve Your Dream IELTS Score</h1>
-          <p style={subtextStyle}>
+    <section className="hero-section">
+      <div className="hero-container">
+        <div className="hero-text">
+          <h1 className="hero-headline">Achieve Your Dream IELTS Score</h1>
+          <p className="hero-subtext">
             Join our expert-guided courses, AI band score analysis, and real-time practice sessions.
           </p>
-          <button style={buttonStyle} onClick={onGetStartedClick}>
+          <button className="hero-button" onClick={onGetStartedClick}>
             Get Started
           </button>
         </div>
-        <img
-          src="https://langogh.com/_next/image?url=%2Fielts-practice-test.jpg&w=2048&q=75"
-          alt="IELTS Banner"
-          style={imgStyle}
-        />
+
+        <div className="hero-image-container">
+          {images.map((src, index) => (
+            <img
+              key={index}
+              src={src}
+              alt={`IELTS Banner ${index + 1}`}
+              className={`hero-image ${currentIndex === index ? "active" : ""}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

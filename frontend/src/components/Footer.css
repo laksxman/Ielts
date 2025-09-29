@@ -33,7 +33,6 @@
   color: #d1d5db;
 }
 
-/* ✅ Mobile view (≤720px) -> sab center ho jaye */
 @media (max-width: 720px) {
   .footer-container {
     flex-direction: column;
