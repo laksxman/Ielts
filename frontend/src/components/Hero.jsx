@@ -1,3 +1,5 @@
+
+
 export default function Hero({ onGetStartedClick }) {
   const sectionStyle = {
     paddingTop: "8rem",
@@ -41,7 +43,10 @@ export default function Hero({ onGetStartedClick }) {
     marginTop: "2rem",
     borderRadius: "1rem",
     maxWidth: "100%",
+    height: "300px",
+    width: "600px",
     boxShadow: "0 10px 15px rgba(0,0,0,0.1)",
+    
   };
 
   return (
@@ -57,7 +62,7 @@ export default function Hero({ onGetStartedClick }) {
           </button>
         </div>
         <img
-          src="https://img.freepik.com/free-vector/ielts-test-preparation-concept_23-2148690040.jpg"
+          src="https://langogh.com/_next/image?url=%2Fielts-practice-test.jpg&w=2048&q=75"
           alt="IELTS Banner"
           style={imgStyle}
         />
